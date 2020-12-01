@@ -1,6 +1,8 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 import NoteList from './components/Notes/NoteList';
 import NoteForm from './components/Notes/NoteForm';
 import reportWebVitals from './reportWebVitals';
@@ -10,6 +12,8 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
+        <Route path="/login" component={SignIn} />
+        <Route path="/register" component={SignUp} />
         <Route exact path="/" component={NoteList} />
         <Route path="/notes" component={NoteForm} />
       </Switch>
