@@ -9,12 +9,20 @@ export interface NoteState {
 }
 
 export const SEND_NOTE = 'send_note'
+export const DELETE_NOTE = 'delete_note'
 
 interface SendNoteAction {
   type: typeof SEND_NOTE
   payload: Note
 }
 
+interface DeleteNoteAction {
+  type: typeof DELETE_NOTE
+  meta: {
+    timestamp: number
+  }
+}
 
-export type NoteActionTypes = SendNoteAction 
+
+export type NoteActionTypes = SendNoteAction | DeleteNoteAction
 
