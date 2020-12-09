@@ -1,24 +1,28 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignIn from './components/SignIn/SignIn';
-import SignUp from './components/SignUp/SignUp';
-import NoteList from './components/Notes/NoteList';
-import NoteForm from './components/Notes/NoteForm';
+import SignIn from './components/screens/SignIn/SignIn';
+import SignUp from './components/screens/SignUp/SignUp';
+import NoteList from './components/screens/NoteList/NoteList';
+import NoteForm from './components/screens/NoteForm/NoteForm';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import { store } from './store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/login" component={SignIn} />
-        <Route path="/register" component={SignUp} />
-        <Route exact path="/" component={NoteList} />
-        <Route path="/notes" component={NoteForm} />
-      </Switch>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" component={SignIn} />
+          <Route path="/register" component={SignUp} />
+          <Route exact path="/" component={NoteList} />
+          <Route path="/notes" component={NoteForm} />
+        </Switch>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
