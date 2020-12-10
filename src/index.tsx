@@ -1,14 +1,14 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignIn from './components/screens/SignIn/SignIn';
-import SignUp from './components/screens/SignUp/SignUp';
-import NoteList from './components/screens/NoteList/NoteList';
-import NoteForm from './components/screens/NoteForm/NoteForm';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import { store } from './store';
+import SignIn from './components/screens/SignIn/SignIn';
+import SignUp from './components/screens/SignUp/SignUp';
+import NoteList from './components/screens/NoteList/NoteList';
+import NoteForm from './components/screens/NoteForm/NoteForm';
 
 ReactDOM.render(
   <Provider store={store}>

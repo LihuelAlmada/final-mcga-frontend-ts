@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {reduxForm, Field} from 'redux-form';
+import {Form, Field} from 'react-final-form'
 
-class SignIn extends Component{
-  renderTextField(){
-    return (
-      <input type="text" name="user" id=""/>
-    );
-  }
-  render(){
-      console.log(this.props);
-      return(
-          <div className="signin">
-            <Field name="username" component={this.renderTextField}/>
-              
-              <input type="text" name="pass" id=""/>
-              <button className="button">ingresar</button>
+/*interface Props{
+  onSubmit: string,
+  validate: string
+}*/
+const validate= (undefined)
+const onSubmit= (onS: string) =>{}
+const SignIn = () => (
+  <Form
+    onSubmit={onSubmit}
+    validate={validate}
+    render={({ handleSubmit }) => (
+    <form onSubmit={handleSubmit}>
+      <h2>Simple Default Input</h2>
+      <div>
+        <label>First Name</label>
+        <Field name="firstName" component="input" placeholder="First Name" />
+      </div>
+      <h2>Render Function as Children</h2>
+      <Field name="phone">
+        {({ input, meta }) => (
+          <div>
+            <label>Phone</label>
+            <input type="text" {...input} placeholder="Phone" />
+            {meta.touched && meta.error && <span>{meta.error}</span>}
           </div>
-      )
-  }
-}
-const mapStateToProps = (state: any) => {
-  return {
-    user: state.user
-  }
-}
-export default connect(mapStateToProps)(reduxForm({form: 'signIn'}))(SignIn); //el SignIn esta bien, reduxForm esta pidiento algo mas que no se que es
-//https://redux-form.com/8.3.0/docs/gettingstarted.md/
+        )}
+      </Field>
+      <button type="submit">Submit</button>
+    </form>
+  )}
+  />
+)
+export default SignIn;
