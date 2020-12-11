@@ -8,7 +8,7 @@ import { store } from './store';
 import SignIn from './components/screens/SignIn/SignIn';
 import SignUp from './components/screens/SignUp/SignUp';
 import NoteList from './components/screens/NoteList/NoteList';
-import NoteForm from './components/screens/NoteForm/NoteForm';
+//import NoteForm from './components/screens/NoteForm/NoteForm';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,7 +18,6 @@ ReactDOM.render(
           <Route path="/login" component={SignIn} />
           <Route path="/register" component={SignUp} />
           <Route exact path="/" component={NoteList} />
-          <Route path="/notes" component={NoteForm} />
         </Switch>
       </BrowserRouter>
     </React.StrictMode>
@@ -29,4 +28,5 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+//<Route path="/notes" component={NoteForm} />
 reportWebVitals();
