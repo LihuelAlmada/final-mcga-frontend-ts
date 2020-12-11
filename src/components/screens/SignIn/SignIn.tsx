@@ -1,3 +1,4 @@
+import './style.css';
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Form, Field} from 'react-final-form'
@@ -13,8 +14,8 @@ const SignIn = () => (
     onSubmit={onSubmit}
     validate={validate}
     render={({ handleSubmit }) => (
-    <form onSubmit={handleSubmit}>
-      <h2>Simple Default Input</h2>
+    <form className='frm' onSubmit={handleSubmit}>
+      <h2 className='header'>Sign In</h2>
       <div>
         <label>First Name</label>
         <Field name="firstName" component="input" placeholder="First Name" />
@@ -29,7 +30,7 @@ const SignIn = () => (
           </div>
         )}
       </Field>
-      <button type="submit">Submit</button>
+      <button className='submit' type="submit">Submit</button>
     </form>
   )}
   />

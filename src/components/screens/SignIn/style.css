@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.frm {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+    justify-items: center;
+    line-height: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header {
+    padding: 20px;
+    background-color: #000000;
+    color: #ffffff;
+}
+input {
+    padding: 5px;
+}
+
+input:hover {
+    background-color: #a3dbdb;
+    outline: none;
+}
+
+label {
+    padding: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.submit {
+    margin-top: 15px;
+    padding: 12px;
+    width: 15%;
+    border: 1px solid #ccc;
+    background-color: #d32e2e;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.submit:hover {
+    background-color: #8d1111;
+    color: #ffffff;
+}

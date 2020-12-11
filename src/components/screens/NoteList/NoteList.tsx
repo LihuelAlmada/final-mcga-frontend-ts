@@ -1,9 +1,10 @@
+import './stylelist.css';
 import React from 'react';
 
 const NoteList = () => {
     return(
-        <div>
-            notes list
+        <div className='list'>
+            Notes List
         </div>
     )
 }
