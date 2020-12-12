@@ -14,7 +14,6 @@ const NoteForm = () => {
         <div className='note-form'>
             
             <h1>Notes Form</h1>
-            <h3>holis</h3>
         </div>
     )
 }

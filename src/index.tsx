@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import { store } from './store';
+import {store} from './store';
 import SignIn from './components/screens/SignIn/SignIn';
 import SignUp from './components/screens/SignUp/SignUp';
 import NoteList from './components/screens/NoteList/NoteList';

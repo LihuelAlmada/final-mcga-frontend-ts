@@ -1,18 +1,7 @@
-/*
-import React from 'react';
-
-const NoteList = () => {
-    return(
-        <div className='list'>
-            Notes List
-        </div>
-    )
-}
-
-export default NoteList;*/
 import './stylelist.css';
 import NoteForm from '../NoteForm/NoteForm';
 import React, { useEffect, useState } from 'react';
+import AppNavbar from '../../AppNavBar';
 
 //export interface noteProps { }
 
@@ -34,6 +23,7 @@ const NoteList: React.FC<note> = () => {
     useEffect(() => { getnotes(); }, [])
     return (
         <React.Fragment>
+            <AppNavbar />
             <div className="list">
                 <div className="notes">
                     {notes.map(note => 
@@ -41,6 +31,7 @@ const NoteList: React.FC<note> = () => {
                         key={note._id}/>
                     )}
                 </div>
+                
             </div>
         </React.Fragment >
     );
