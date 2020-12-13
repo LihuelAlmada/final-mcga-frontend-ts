@@ -2,8 +2,13 @@ import './stylelist.css';
 import NoteForm from '../NoteForm/NoteForm';
 import React, { useEffect, useState } from 'react';
 import AppNavbar from '../../AppNavBar';
-
+//import { Form, Field } from 'react-final-form';
 //export interface noteProps { }
+/*const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const onSubmit = async (values: note) => {
+    await sleep(300);
+    window.alert(JSON.stringify(values, undefined, 2));
+  };*/
 
 export interface note {
     _id: string;
@@ -24,12 +29,14 @@ const NoteList: React.FC<note> = () => {
     return (
         <React.Fragment>
             <AppNavbar />
+            
             <div className="list">
                 <div className="notes">
                     {notes.map(note => 
                         <NoteForm
                         key={note._id}/>
                     )}
+                    
                 </div>
                 
             </div>
