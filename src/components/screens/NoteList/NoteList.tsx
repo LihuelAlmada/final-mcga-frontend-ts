@@ -3,8 +3,7 @@ import NoteForm from '../NoteForm/NoteForm';
 import React, { useEffect, useState } from 'react';
 import AppNavbar from '../../AppNavBar';
 import { Formik, Form, Field } from "formik";
-import {deleteNote, sendNote} from '../../../store/note/actions'
-
+import {getNotes, deleteNote} from '../../../store/note/actions'
 
 export interface note {
     _id: string;
@@ -13,57 +12,58 @@ export interface note {
     createdAt: Date;
     updatedAt: Date;
 }
-
+const handleDelete = (id: string) => {
+  deleteNote(id);
+};
 const NoteList: React.FC<note> = () => {
-    const [notes, setnoteList] = useState<note[]>([]);
-    const getnotes = async () => {
+    const [notes, setNoteList] = useState<note[]>([]);
+    const getNotes = async () => {
         let e = await fetch('https://altas-notas-ts.herokuapp.com/notes')
         let notes = await e.json();
-        setnoteList(notes)
+        setNoteList(notes)
     }
-    useEffect(() => { getnotes(); }, [])
+    useEffect(() => { getNotes(); }, [])
     return (
         <React.Fragment>
             <AppNavbar />
             <Formik
             initialValues={{ name: "", lastname: "", age: "" }}
             onSubmit={(values: any) => {
-              //Call action "postStudent"
-              //this.props.postStudent(values);
+              //Call action "postNote"
+              //this.props.postNote(values);
               //this.setState((prevState) => ({ check: !prevState.check }));
             }}
           >
             {({ handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
-                <div className="containerAddStudent">
-                  <h4> Add Students</h4>
-
+                <div className="containerAddNote">
+                  <h4> Add Notes</h4>
                   <Field
                     type="text"
-                    className="nameStudent"
+                    className="nameNote"
                     name="name"
                     placeholder="Name"
                   />
 
                   <Field
                     type="text"
-                    className="lastnameStudent"
+                    className="lastnameNote"
                     name="lastname"
                     placeholder="Last name"
                   />
                   <Field
                     type="text"
-                    className="ageStudent"
+                    className="ageNote"
                     name="age"
                     placeholder="Age"
                   />
                   <Field
                     type="text"
-                    className="classStudent"
+                    className="classNote"
                     name="class"
                     placeholder="Class"
                   />
-                  <button className="btnAddStudent" type="submit">
+                  <button className="btnAddNote" type="submit">
                     Add
                   </button>
                   
@@ -73,7 +73,6 @@ const NoteList: React.FC<note> = () => {
           </Formik>
           <thead>
             <tr>
-              {/*Name of the columns*/}
               <th>Title</th>
               <th>Description</th>
               <th>Date</th>
@@ -82,21 +81,19 @@ const NoteList: React.FC<note> = () => {
           </thead>
           <tbody>
             {notes.map((note) =>{
-                //Show the students if they exist. For each student return a row. Everytime it is run a new one is added
                 return (
                   <tr>
                     <td>
                       <button
                         className="deleteNote"
-                        onClick={() => {
+                        onClick={() => 
                           //Call action "deleteNote"
-                          //deleteNote(note);
-                        }}
+                          handleDelete(note._id)
+                        }
                       >
                         Delete
                       </button>
                     </td>
-                    {/*Bring the atributte of the student*/}
                     <td>Title: {note.title}</td>
                     <td>Description: {note.description}</td>
                     <td>Date: {note.updatedAt}</td>
@@ -108,20 +105,5 @@ const NoteList: React.FC<note> = () => {
         </React.Fragment >
     );
 }
-/*
-{notes.map(note => (
-                        <>
-                            <div className="note">
-                                {<img src={note.image} alt="imagen"></img>}
-                                <h1>{note.name}</h1>
-                                <h3>Genre:  {note.genre}</h3>
-                                <h3>Description: {note.description}</h3>
-                            </div>
-                        </>
-                    ))}
-
-                    <NoteForm
-                        key={note._id}/>
-*/
 
 export default NoteList;

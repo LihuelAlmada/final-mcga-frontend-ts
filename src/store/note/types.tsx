@@ -1,4 +1,9 @@
-export interface Note {
+export const GET_NOTES = 'GET_NOTES';
+export const ADD_NOTE = 'ADD_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const NOTES_LOADING = 'NOTES_LOADING';
+
+/*export interface Note {
     user: string
     message: string
     timestamp: number
@@ -24,5 +29,5 @@ interface DeleteNoteAction {
 }
 
 
-export type NoteActionTypes = SendNoteAction | DeleteNoteAction
+export type NoteActionTypes = SendNoteAction | DeleteNoteAction*/
 

@@ -1,30 +1,37 @@
-import {
-    NoteState,
-    SEND_NOTE,
-    NoteActionTypes,
-    DELETE_NOTE
-  } from './types'
+import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING } from './types';
+import {IAction, INote} from '../interfaces'
   
-  const initialState: NoteState = {
-    notes: []
+const initialState = {
+  notes: [],
+  loading: false
+}
+interface IState {
+  notes: INote[];
+}
+export default function(state: IState = initialState, action: IAction) {
+  switch (action.type) {
+    case GET_NOTES:
+      return {
+        ...state,
+        notes: action.payload,
+        loading: false
+      };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter(note => note._id !== action.payload)
+      };
+    case ADD_NOTE:
+      return {
+        ...state,
+        notes: [action.payload, ...state.notes]
+      };
+    case NOTES_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+    default:
+      return state;
   }
-  
-  export function noteReducer(
-    state = initialState,
-    action: NoteActionTypes
-  ): NoteState {
-    switch (action.type) {
-      case SEND_NOTE:
-        return {
-          notes: [...state.notes, action.payload]
-        }
-      case DELETE_NOTE:
-        return {
-          notes: state.notes.filter(
-            note => note.timestamp !== action.meta.timestamp
-          )
-        }
-      default:
-        return state
-    }
-  }
+}
