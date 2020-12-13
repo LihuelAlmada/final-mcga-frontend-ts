@@ -2,13 +2,9 @@ import './stylelist.css';
 import NoteForm from '../NoteForm/NoteForm';
 import React, { useEffect, useState } from 'react';
 import AppNavbar from '../../AppNavBar';
-//import { Form, Field } from 'react-final-form';
-//export interface noteProps { }
-/*const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-const onSubmit = async (values: note) => {
-    await sleep(300);
-    window.alert(JSON.stringify(values, undefined, 2));
-  };*/
+import { Formik, Form, Field } from "formik";
+import {deleteNote, sendNote} from '../../../store/note/actions'
+
 
 export interface note {
     _id: string;
@@ -29,17 +25,86 @@ const NoteList: React.FC<note> = () => {
     return (
         <React.Fragment>
             <AppNavbar />
-            
-            <div className="list">
-                <div className="notes">
-                    {notes.map(note => 
-                        <NoteForm
-                        key={note._id}/>
-                    )}
-                    
+            <Formik
+            initialValues={{ name: "", lastname: "", age: "" }}
+            onSubmit={(values: any) => {
+              //Call action "postStudent"
+              //this.props.postStudent(values);
+              //this.setState((prevState) => ({ check: !prevState.check }));
+            }}
+          >
+            {({ handleSubmit }) => (
+              <Form onSubmit={handleSubmit}>
+                <div className="containerAddStudent">
+                  <h4> Add Students</h4>
+
+                  <Field
+                    type="text"
+                    className="nameStudent"
+                    name="name"
+                    placeholder="Name"
+                  />
+
+                  <Field
+                    type="text"
+                    className="lastnameStudent"
+                    name="lastname"
+                    placeholder="Last name"
+                  />
+                  <Field
+                    type="text"
+                    className="ageStudent"
+                    name="age"
+                    placeholder="Age"
+                  />
+                  <Field
+                    type="text"
+                    className="classStudent"
+                    name="class"
+                    placeholder="Class"
+                  />
+                  <button className="btnAddStudent" type="submit">
+                    Add
+                  </button>
+                  
                 </div>
-                
-            </div>
+              </Form>
+            )}
+          </Formik>
+          <thead>
+            <tr>
+              {/*Name of the columns*/}
+              <th>Title</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>key</th>
+            </tr>
+          </thead>
+          <tbody>
+            {notes.map((note) =>{
+                //Show the students if they exist. For each student return a row. Everytime it is run a new one is added
+                return (
+                  <tr>
+                    <td>
+                      <button
+                        className="deleteNote"
+                        onClick={() => {
+                          //Call action "deleteNote"
+                          //deleteNote(note);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                    {/*Bring the atributte of the student*/}
+                    <td>Title: {note.title}</td>
+                    <td>Description: {note.description}</td>
+                    <td>Date: {note.updatedAt}</td>
+                    <td>key: {note._id}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
         </React.Fragment >
     );
 }
@@ -54,6 +119,9 @@ const NoteList: React.FC<note> = () => {
                             </div>
                         </>
                     ))}
+
+                    <NoteForm
+                        key={note._id}/>
 */
 
 export default NoteList;
