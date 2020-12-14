@@ -1,5 +1,5 @@
 import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING } from './types';
-import {IAction, INote} from '../interfaces'
+import {IAction, INote} from '../../interfaces'
   
 const initialState = {
   notes: [],

@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import SignIn from './components/screens/SignIn/SignIn';
 import SignUp from './components/screens/SignUp/SignUp';
-import NoteList from './components/screens/NoteList/NoteList';
+import NotesList from './components/screens/NoteList/NotesList';
 //import NoteForm from './components/screens/NoteForm/NoteForm';
 
 ReactDOM.render(
@@ -17,7 +17,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/login" component={SignIn} />
           <Route path="/register" component={SignUp} />
-          <Route exact path="/" component={NoteList} />
+          <Route exact path="/" component={NotesList} />
         </Switch>
       </BrowserRouter>
     </React.StrictMode>

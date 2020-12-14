@@ -2,19 +2,16 @@
 
 export interface IExistingNote {
     _id: string;
-    name: string;
+    title: string;
     description: string;
+    updatedAt: Date;
 }
 
 export interface INote {
     _id?: string;
-    name: string;
+    title: string;
     description: string;
-}
-
-export interface INoteModal {
-    isAuthenticated: boolean;
-    addNote(note: INote): void;
+    updatedAt: Date;
 }
 
 export interface INotesList {
@@ -25,6 +22,11 @@ export interface INotesList {
     deleteNote(id: string): void;
     isAuthenticated: boolean;
 }
+export interface INoteReduxProps {     
+    note: {
+      notes: IExistingNote[];
+    };
+  }
 
             /*Actions*/ 
 

@@ -1,33 +1,31 @@
 import './stylelist.css';
-import NoteForm from '../NoteForm/NoteForm';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import AppNavbar from '../../AppNavBar';
 import { Formik, Form, Field } from "formik";
 import {getNotes, deleteNote} from '../../../store/note/actions'
+import { INotesList, INoteReduxProps } from '../../../interfaces';
+import { connect } from 'react-redux';
 
-export interface note {
-    _id: string;
-    title: string;
-    description: string;
-    createdAt: Date;
-    updatedAt: Date;
-}
+const NotesList = ({
+  getNotes,
+  note,
+  isAuthenticated,
+  deleteNote
+}: INotesList) => {
+  useEffect(() => {
+    getNotes();
+  }, [getNotes]);
+
 const handleDelete = (id: string) => {
   deleteNote(id);
 };
-const NoteList: React.FC<note> = () => {
-    const [notes, setNoteList] = useState<note[]>([]);
-    const getNotes = async () => {
-        let e = await fetch('https://altas-notas-ts.herokuapp.com/notes')
-        let notes = await e.json();
-        setNoteList(notes)
-    }
-    useEffect(() => { getNotes(); }, [])
+
+const {notes} = note;
     return (
         <React.Fragment>
             <AppNavbar />
             <Formik
-            initialValues={{ name: "", lastname: "", age: "" }}
+            initialValues={{ title: "", description: "", updateupdatedAt: "" }}
             onSubmit={(values: any) => {
               //Call action "postNote"
               //this.props.postNote(values);
@@ -40,33 +38,19 @@ const NoteList: React.FC<note> = () => {
                   <h4> Add Notes</h4>
                   <Field
                     type="text"
-                    className="nameNote"
-                    name="name"
-                    placeholder="Name"
-                  />
-
-                  <Field
-                    type="text"
-                    className="lastnameNote"
-                    name="lastname"
-                    placeholder="Last name"
+                    className="titleNote"
+                    name="title"
+                    placeholder="Title"
                   />
                   <Field
                     type="text"
-                    className="ageNote"
-                    name="age"
-                    placeholder="Age"
-                  />
-                  <Field
-                    type="text"
-                    className="classNote"
-                    name="class"
-                    placeholder="Class"
+                    className="descriptionNote"
+                    name="description"
+                    placeholder="Description"
                   />
                   <button className="btnAddNote" type="submit">
                     Add
                   </button>
-                  
                 </div>
               </Form>
             )}
@@ -80,7 +64,7 @@ const NoteList: React.FC<note> = () => {
             </tr>
           </thead>
           <tbody>
-            {notes.map((note) =>{
+            {notes.map(({_id,title,description,updatedAt}) =>{
                 return (
                   <tr>
                     <td>
@@ -88,22 +72,25 @@ const NoteList: React.FC<note> = () => {
                         className="deleteNote"
                         onClick={() => 
                           //Call action "deleteNote"
-                          handleDelete(note._id)
+                          handleDelete(_id)
                         }
                       >
                         Delete
                       </button>
                     </td>
-                    <td>Title: {note.title}</td>
-                    <td>Description: {note.description}</td>
-                    <td>Date: {note.updatedAt}</td>
-                    <td>key: {note._id}</td>
+                    <td>Title: {title}</td>
+                    <td>Description: {description}</td>
+                    <td>Date: {updatedAt}</td>
+                    <td>key: {_id}</td>
                   </tr>
                 );
               })}
           </tbody>
         </React.Fragment >
     );
-}
+};
+const mapStateToProps = (state: INoteReduxProps) => ({
+  note: state.note,
+});
 
-export default NoteList;
+export default connect(mapStateToProps,{getNotes, deleteNote})(NotesList);
