@@ -33,9 +33,8 @@ const {notes} = note;
             </tr>
           </thead>
           <tbody>
-            {notes.map(({_id,title,description}) =>{
-                return (
-                  <tr>
+            {notes.map(({_id,title,description}) =>(
+                  <tr key={_id}>
                     <td>
                       <button
                         className="deleteNote"
@@ -51,8 +50,8 @@ const {notes} = note;
                     <td>Description: {description}</td>
                     <td>key: {_id}</td>
                   </tr>
-                );
-              })}
+                )
+            )}
           </tbody>
         </React.Fragment >
     );
