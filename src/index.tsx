@@ -8,7 +8,6 @@ import store from './store';
 import SignIn from './components/screens/SignIn/SignIn';
 import SignUp from './components/screens/SignUp/SignUp';
 import NotesList from './components/screens/NoteList/NotesList';
-//import NoteForm from './components/screens/NoteForm/NoteForm';
 
 ReactDOM.render(
   <Provider store={store}>
