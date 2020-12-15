@@ -5,7 +5,7 @@ import { INote } from '../../interfaces';
 export const getNotes = () => (dispatch: Function) => {
   dispatch(setNotesLoading());
   axios
-    .get('https://altas-notas-ts.herokuapp.com/notes')
+    .get('http://localhost:5000/notes')
     .then(res =>
       dispatch({
         type: GET_NOTES,
@@ -22,7 +22,7 @@ export const addNote = (note: INote) => (
   getState: Function
 ) => {
   axios
-    .post('https://altas-notas-ts.herokuapp.com/notes', note)
+    .post('http://localhost:5000/notes', note)
     .then(res =>
       dispatch({
         type: ADD_NOTE,
@@ -39,7 +39,7 @@ export const deleteNote = (id: string) => (
   getState: Function
 ) => {
   axios
-    .delete(`https://altas-notas-ts.herokuapp.com/notes/${id}`)
+    .delete(`http://localhost:5000/notes/${id}`)
     .then(res =>
       dispatch({
         type: DELETE_NOTE,

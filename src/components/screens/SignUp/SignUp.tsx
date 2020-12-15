@@ -1,6 +1,7 @@
 import './style2.css';
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class SignUp extends Component{
     render(){
@@ -12,6 +13,9 @@ class SignUp extends Component{
                     <input type="text" name="user" id=""/>
                     <input type="text" name="pass" id=""/>
                     <button className="button">Guardar usuario</button>
+                    <Link to = "/home">
+                        <button className="button green">Home</button>
+                    </Link>
                 </div>
             </div>
         )
@@ -19,7 +23,7 @@ class SignUp extends Component{
 }
 const mapStateToProps = (state: any) => {
     return {
-      user: state.user
+        user: state.user
     }
 } 
 export default connect(mapStateToProps)(SignUp);

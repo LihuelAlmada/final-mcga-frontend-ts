@@ -2,7 +2,7 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 import SignIn from './components/screens/SignIn/SignIn';
@@ -10,18 +10,19 @@ import SignUp from './components/screens/SignUp/SignUp';
 import NotesList from './components/screens/NoteList/NotesList';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/login" component={SignIn} />
-          <Route path="/register" component={SignUp} />
-          <Route exact path="/" component={NotesList} />
-        </Switch>
-      </BrowserRouter>
-    </React.StrictMode>
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <React.StrictMode>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/login" component={SignIn} />
+                    <Route path="/register" component={SignUp} />
+                    <Route exact path="/home" component={NotesList} />
+                    <Redirect path="/" to="/home"/>
+                </Switch>
+            </BrowserRouter>
+        </React.StrictMode>
+    </Provider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
