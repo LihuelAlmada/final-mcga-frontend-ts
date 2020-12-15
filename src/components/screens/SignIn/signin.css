@@ -14,11 +14,12 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.header {
+/*.header {
     padding: 20px;
     background-color: #000000;
     color: #ffffff;
 }
+*/
 input {
     padding: 5px;
 }
