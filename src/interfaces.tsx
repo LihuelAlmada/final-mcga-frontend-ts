@@ -67,6 +67,10 @@ export interface ISignIn extends IAuthForm {
 export interface ISignUp extends IAuthForm {   
     register(user: IUser): void;
 }
+export interface ILogoutProps { 
+    logout(): void;
+}
+  
             /*React*/
 export interface ITarget {   
     target: {

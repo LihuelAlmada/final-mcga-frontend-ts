@@ -1,6 +1,7 @@
 import './notelist.css';
 import React, { useEffect } from 'react';
 import AppNavbar from '../AppNavBar/AppNavBar';
+import LogOut from '../LogOut/LogOut';
 import {getNotes, deleteNote} from '../../../store/note/actions'
 import { INotesList, INoteReduxProps } from '../../../interfaces';
 import { connect } from 'react-redux';
@@ -23,6 +24,7 @@ const {notes} = note;
     return (
         <React.Fragment>
             <AppNavbar/>
+            <LogOut/>
             <NoteForm/>
                 <div className="footer">
                     <div>Title</div>
@@ -51,7 +53,7 @@ const {notes} = note;
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> 
         </React.Fragment >
     );
 };

@@ -1,4 +1,4 @@
-import './styleform.css';
+import './style.css';
 import React from 'react';
 import {INoteReduxProps, INoteAdd } from '../../../interfaces';
 import {addNote} from '../../../store/note/actions';

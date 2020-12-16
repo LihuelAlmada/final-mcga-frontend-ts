@@ -7,7 +7,7 @@ import { IAuthFunction, IConfigHeaders } from '../../interfaces';
 export const loadUser = () => (dispatch: Function, getState: Function) => {
     //User Loading
     dispatch({ type: USER_LOADING});
-    axios.get('/signin', tokenConfig(getState))
+    axios.get('http://localhost:5000/signin', tokenConfig(getState))
         .then(res => dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -18,8 +18,46 @@ export const loadUser = () => (dispatch: Function, getState: Function) => {
                 type: AUTH_ERROR
             });
         });
-}
+};
 
+
+// Register User
+export const register = ({ userName, email, password }: IAuthFunction) => (
+    dispatch: Function
+  ) => {
+    // Headers
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+  
+    // Request body
+    const body = JSON.stringify({ userName, email, password });
+  
+    axios
+      .post('http://localhost:5000/signup', body, config)
+      .then(res =>
+        dispatch({
+          type: REGISTER_SUCCESS,
+          payload: res.data
+        })
+      )
+      .catch(err => {
+        dispatch(
+          returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
+        );
+        dispatch({
+          type: REGISTER_FAIL
+        });
+      });
+  };
+// Logout User
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS
+  };
+};
 export const tokenConfig = (getState: Function) =>{
     // Get token from localstorage
     const token = getState().user.token;

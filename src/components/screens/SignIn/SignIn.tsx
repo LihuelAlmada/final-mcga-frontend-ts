@@ -1,42 +1,60 @@
-import './signin.css';
-import React, { Component } from 'react';
+import './style.css';
+import React from 'react';
 import {connect} from 'react-redux';
-import {Form, Field} from 'react-final-form'
 import {Link} from 'react-router-dom';
-
-/*interface Props{
-  onSubmit: string,
-  validate: string
-}*/
-const validate= (undefined)
-const onSubmit= (onS: string) =>{}
-const SignIn = () => (
-    <Form
-        onSubmit={onSubmit}
-        validate={validate}
-        render={({ handleSubmit }) => (
-            <form className='frm' onSubmit={handleSubmit}>
-                <h2 className='head'>Sign In</h2>
-                <div className="containForm">
-                    <div>
-                        <label>First Name</label>
-                        <Field name="firstName" component="input" placeholder="First Name" />
+import {IAuthReduxProps, ISignIn} from '../../../interfaces';
+import { Form, Field } from 'react-final-form';
+const SignIn = ({
+    login
+  }: ISignIn) => {
+    const onSubmit =(e: any) => {
+        const userName = e.userName
+        const email = e.email
+        const password = e.password
+        const user = {
+            userName: userName,
+            email: email,
+            password: password
+        };
+        console.log("paso el login")
+        login(user);
+        //<Link to="/login"/>
+    }
+    return(
+        <Form
+            onSubmit={onSubmit}
+            //initialValues={}
+            render={({ handleSubmit, form, submitting, pristine, values }) => (
+                <form onSubmit={handleSubmit}>
+                    <h2 className="default">Simple Default Input</h2>
+                    <div className="container">
+                        <div>
+                            <label>userName</label>
+                            <Field name="userName" component="input" placeholder="userName" />
+                        </div>
+                        <div>
+                            <label>email</label>
+                            <Field name="email" component="input" placeholder="email" />
+                        </div>
+                        <div>
+                        <div>
+                        <label>password</label>
+                            <Field name="password" component="input" placeholder="password" />
+                        </div>
+                            <button className="add" type="submit">Add</button>
+                        </div>
                     </div>
-                    <h2>Render Function as Children</h2>
-                    <div>
-                        <label>Phone</label>
-                        <Field name="phone" component="input" type="text" placeholder="Phone" />
-                    </div>
-                    <button className='submit' type="submit">Submit</button>
                     <Link to = "/home">
                         <button className="button Home">Home</button>
                     </Link>
-                    <Link to = "/register">
-                            <button className="button">Register</button>
-                    </Link>
-                </div>
-            </form>
-        )}
-    />
-)
-export default SignIn;
+                </form>
+                
+            )}
+        />
+    )
+}
+const mapStateToProps = (state: IAuthReduxProps) => ({
+    /*isAuthenticated: state.auth.isAuthenticated,
+    error: state.error*/
+})
+export default connect(mapStateToProps, { /*login, clearErrors */})(SignIn);

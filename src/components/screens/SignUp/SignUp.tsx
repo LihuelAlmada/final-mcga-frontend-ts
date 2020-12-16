@@ -1,11 +1,15 @@
 import './signup.css';
-import React, { Component } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {IAuthReduxProps, ISignUp} from '../../../interfaces';
 import { Form, Field } from 'react-final-form';
+import {register} from '../../../store/user/actions';
+import {clearErrors} from '../../../store/error/action'
 const SignUp = ({
-    register
+    register,
+    //isAuthenticated,
+    //error,
   }: ISignUp) => {
     const onSubmit =(e: any) => {
         const userName = e.userName
@@ -41,7 +45,7 @@ const SignUp = ({
                         <label>password</label>
                             <Field name="password" component="input" placeholder="password" />
                         </div>
-                            <button className="add" type="submit">Add</button>
+                            <button className="add" type="submit">Register</button>
                         </div>
                     </div>
                     <Link to = "/home">
@@ -55,8 +59,7 @@ const SignUp = ({
 }
 
 const mapStateToProps = (state: IAuthReduxProps) => ({
-    /*isAuthenticated: state.auth.isAuthenticated,
+   /* isAuthenticated: state.auth.isAuthenticated,
     error: state.error*/
-})
-export default connect(mapStateToProps)(SignUp);
-//
+});
+export default connect(mapStateToProps, { register, clearErrors })(SignUp);
