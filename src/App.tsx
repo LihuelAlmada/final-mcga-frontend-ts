@@ -10,10 +10,10 @@ import { Route, Switch, Redirect} from 'react-router-dom';
 import Home from './components/screens/Home/Home';
 
 const App = () => {
-  useEffect(() => {
+/*  useEffect(() => {
     store.dispatch(loadUser());
   }, []);
-
+*/
   return (
     <Provider store={store}>
       <div className="App">
@@ -21,8 +21,8 @@ const App = () => {
             <Route path="/login" component={SignIn} />
             <Route path="/register" component={SignUp} />
             <Route exact path="/home" component={Home} />
-            <Redirect path="/" to="/home"/>
             <Route exact path="/notes" component={NotesList} />
+            <Redirect path="/" to="/home"/>
         </Switch>
       </div>
     </Provider>
