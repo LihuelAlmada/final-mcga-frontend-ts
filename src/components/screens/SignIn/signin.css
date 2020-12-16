@@ -51,11 +51,11 @@ label {
     border: 1px solid #ccc;
     background-color: #c43a3a;
     font-weight: bold;
-    cursor: pointer;
     outline: none;
 }
 
 .submit:hover {
     background-color: #070707;
     color: #ffffff;
+    cursor: pointer;
 }

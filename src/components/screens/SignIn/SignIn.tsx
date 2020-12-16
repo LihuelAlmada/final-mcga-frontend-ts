@@ -23,12 +23,10 @@ const SignIn = () => (
             <Field name="firstName" component="input" placeholder="First Name" />
         </div>
         <h2>Render Function as Children</h2>
-        <Field name="phone">
-            <div>
-                <label>Phone</label>
-                <input type="text" placeholder="Phone" />
-            </div>
-        </Field>
+        <div>
+            <label>Phone</label>
+        <Field name="phone" component="input" type="text" placeholder="Phone" />
+        </div>
         <button className='submit' type="submit">Submit</button>
         <Link to = "/home">
             <button className="button Home">Home</button>
