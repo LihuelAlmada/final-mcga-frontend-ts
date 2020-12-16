@@ -19,9 +19,6 @@ const AppNavbar = () => {
                 <Link to = "/home">
                     <button className="button">Home</button>
                 </Link>
-                <div>
-                <button type="submit">submit</button>
-                </div>
             </div>
         </div>    
     );

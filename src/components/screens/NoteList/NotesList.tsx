@@ -1,4 +1,4 @@
-import './stylelist.css';
+import './notelist.css';
 import React, { useEffect } from 'react';
 import AppNavbar from '../AppNavBar/AppNavBar';
 import {getNotes, deleteNote} from '../../../store/note/actions'
