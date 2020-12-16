@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+}
+.signup {
+    padding: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px;
+    align-items: center;
+    background-color:  #ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.saveUser {
+    margin-top: 15px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+}
+.head {
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.button {
+    margin-top: 15px;
+    padding: 12px;
+    width: 25%;
+    font-weight: bold;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.button:hover {
+    font-weight: bold;
+    background-color: #d33030;
+    color: #ffffff;
+}
+
+.save {
+    padding: 12px;
+    font-weight: bold;
+    background-color: #2095c4;
+    cursor: pointer;
+}
+
+.save:hover {
+    background-color: #156983;
+    color: #ffffff;
+}
+input.box {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #a08b8b;
+    line-height: 15px;
+}

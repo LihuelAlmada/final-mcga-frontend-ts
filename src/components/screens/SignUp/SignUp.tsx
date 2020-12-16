@@ -1,4 +1,4 @@
-import './style2.css';
+import './signup.css';
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -9,12 +9,12 @@ class SignUp extends Component{
         return(
             <div className="signup">
                 <h2 className='head'>Sign Up</h2>
-                <div>
-                    <input type="text" name="user" id=""/>
-                    <input type="text" name="pass" id=""/>
-                    <button className="button">Guardar usuario</button>
+                <div className="saveUser">
+                    <input className="box" type="text" name="user" id=""/>
+                    <input className="box" type="text" name="pass" id=""/>
+                    <button className="save">Guardar usuario</button>
                     <Link to = "/home">
-                        <button className="button green">Home</button>
+                        <button className="button">Home</button>
                     </Link>
                 </div>
             </div>
