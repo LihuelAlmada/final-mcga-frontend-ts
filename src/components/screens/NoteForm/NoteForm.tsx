@@ -31,16 +31,20 @@ const NoteForm = ({addNote }: INoteAdd) => {
             onSubmit={(initialValues: string) => { console.log("formik");}}
             render={() => (
                 <form onSubmit={handleOnSubmit}>
-                    <h2>Simple Default Input</h2>
-                    <div>
-                        <label>Title</label>
-                        <Field name="title" component="input" placeholder={title} onChange={handleChangeTitle} />
+                    <h2 className="default">Simple Default Input</h2>
+                    <div className="container">
+                        <div>
+                            <label>Title</label>
+                            <Field name="title" component="input" placeholder={title} onChange={handleChangeTitle} />
+                        </div>
+                        <div>
+                            <label>Description</label>
+                            <Field name="description" component="input" placeholder={description} onChange={handleChangeDescription} />
+                        </div>
+                        <div>
+                        <button className="add" type="submit">Add</button>
+                        </div>
                     </div>
-                    <div>
-                        <label>Description</label>
-                        <Field name="description" component="input" placeholder={description} onChange={handleChangeDescription} />
-                    </div>
-                    <button type="submit">Add</button>
                 </form>
             )}
         />

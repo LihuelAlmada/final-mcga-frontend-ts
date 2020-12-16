@@ -24,6 +24,7 @@ const {notes} = note;
         <React.Fragment>
             <AppNavbar/>
             <NoteForm/>
+            <div className="footer">
             <thead>
                 <tr>
                 <th>Title</th>
@@ -32,6 +33,7 @@ const {notes} = note;
                 <th>key</th>
                 </tr>
             </thead>
+            </div>
             <tbody>
                 {notes.map(({_id,title,description}) =>(
                     <tr key={_id}>
