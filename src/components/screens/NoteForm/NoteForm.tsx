@@ -8,9 +8,9 @@ import { Form, Field } from 'react-final-form';
 const NoteForm = ({addNote }: INoteAdd) => {
 
     /*const [title, setTitle] = useState('');
-    const [description,setDescription] = useState('');*/
+    const [description,setDescription] = useState('');
 
-    /*const handleChangeTitle = (e: ITarget) =>{setTitle(e.target.value)} 
+    const handleChangeTitle = (e: ITarget) =>{setTitle(e.target.value)} 
 
     const handleChangeDescription = (e: ITarget) => setDescription(e.target.value);*/
     /*onChange = e =>{
@@ -26,14 +26,31 @@ const NoteForm = ({addNote }: INoteAdd) => {
         addNote(newNote);
     };*/
     const onSubmit =(e: any) => {
+        //e.preventDefault();
+        console.log("El E ", e.title)
+        const title = e.title
+        const description = e.description
+        //console.log(title)
+        const newNote = {
+            title: title,
+            description: description
+        };
+        console.log("paso a newNote")
+        addNote(newNote);
+        //console.log(newNote)
+    }
+    /*const handleSubmit =(e: any) => {
         e.preventDefault();
-        /*const newNote = {
+        console.log("El E ", e)
+        /*const title = e.target('title').value
+        const description = e.target('description').value
+        const newNote = {
             title,
             description
-        };*/
-        console.log("paso a newNote")
+        };
         //addNote(newNote);
-    }
+    }*/
+    
     return(
         <Form
             onSubmit={onSubmit}

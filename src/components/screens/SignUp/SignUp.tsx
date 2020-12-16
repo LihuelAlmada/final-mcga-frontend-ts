@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 
 class SignUp extends Component{
     render(){
-        console.log(this.props);
         return(
             <div className="signup">
                 <h2 className='head'>Sign Up</h2>
