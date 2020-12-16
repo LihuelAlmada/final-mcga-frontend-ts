@@ -4,20 +4,17 @@
     font-weight: bold;
     font-size: 25px;
 }
-
 .container {
     display: flex;
     flex-direction: column;
     line-height: 40px;
     text-align: center;
 }
-
 .add {
     padding: 15px;
     width: 80px;
     background-color: #2297bb;
 }
-
 .add:hover {
     background-color: #2abfec;
     cursor: pointer;

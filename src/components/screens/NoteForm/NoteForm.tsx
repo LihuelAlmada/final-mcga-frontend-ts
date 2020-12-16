@@ -39,7 +39,6 @@ const NoteForm = ({addNote }: INoteAdd) => {
             onSubmit={onSubmit}
             //initialValues={}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
-
                 <form onSubmit={handleSubmit}>
                     <h2 className="default">Simple Default Input</h2>
                     <div className="container">
@@ -52,7 +51,7 @@ const NoteForm = ({addNote }: INoteAdd) => {
                             <Field name="description" component="input" placeholder="Description" />
                         </div>
                         <div>
-                        <button className="add" type="submit">Add</button>
+                            <button className="add" type="submit">Add</button>
                         </div>
                     </div>
                 </form>

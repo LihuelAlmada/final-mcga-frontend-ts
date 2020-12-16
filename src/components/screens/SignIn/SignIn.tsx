@@ -15,29 +15,28 @@ const SignIn = () => (
         onSubmit={onSubmit}
         validate={validate}
         render={({ handleSubmit }) => (
-        <form className='frm' onSubmit={handleSubmit}>
-        <h2 className='head'>Sign In</h2>
-        <div className="containForm">
-        <div>
-            <label>First Name</label>
-            <Field name="firstName" component="input" placeholder="First Name" />
-        </div>
-        <h2>Render Function as Children</h2>
-        <div>
-            <label>Phone</label>
-        <Field name="phone" component="input" type="text" placeholder="Phone" />
-        </div>
-        <button className='submit' type="submit">Submit</button>
-        <Link to = "/home">
-            <button className="button Home">Home</button>
-        </Link>
-        <Link to = "/register">
-                <button className="button">Register</button>
-        </Link>
-        </div>
-        </form>
-    )}
+            <form className='frm' onSubmit={handleSubmit}>
+                <h2 className='head'>Sign In</h2>
+                <div className="containForm">
+                    <div>
+                        <label>First Name</label>
+                        <Field name="firstName" component="input" placeholder="First Name" />
+                    </div>
+                    <h2>Render Function as Children</h2>
+                    <div>
+                        <label>Phone</label>
+                        <Field name="phone" component="input" type="text" placeholder="Phone" />
+                    </div>
+                    <button className='submit' type="submit">Submit</button>
+                    <Link to = "/home">
+                        <button className="button Home">Home</button>
+                    </Link>
+                    <Link to = "/register">
+                            <button className="button">Register</button>
+                    </Link>
+                </div>
+            </form>
+        )}
     />
-   
 )
 export default SignIn;

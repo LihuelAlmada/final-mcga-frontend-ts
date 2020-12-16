@@ -32,18 +32,15 @@ body {
 input {
     padding: 5px;
 }
-
 input:hover {
     background-color: #a8b3b3;
     outline: none;
 }
-
 label {
     padding: 10px;
     font-size: 17px;
     font-weight: bold;
 }
-
 .submit {
     margin-top: 15px;
     padding: 12px;
@@ -53,7 +50,6 @@ label {
     font-weight: bold;
     outline: none;
 }
-
 .submit:hover {
     background-color: #070707;
     color: #ffffff;
