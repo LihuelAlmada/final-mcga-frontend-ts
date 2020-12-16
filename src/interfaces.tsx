@@ -41,7 +41,7 @@ export interface IError {
     id: E_ERROR;
     msg: IMsg;
 }
-        /* Authentication */
+        /* Authentication and User */
 export interface IConfigHeaders {  
     headers: {
       [index: string]: string;
@@ -50,6 +50,22 @@ export interface IConfigHeaders {
 export interface IAuthReduxProps {  
     auth: { isAuthenticated: boolean };
     error: IError;
+}
+export interface IUser {  
+    userName: string;
+    email?: string;
+    password: string;
+}
+export interface IAuthForm { 
+    isAuthenticated?: boolean;
+    error: IError;
+    clearErrors(): void;
+}
+export interface ISignIn extends IAuthForm {  
+    login(user: IUser): void;
+}
+export interface ISignUp extends IAuthForm {   
+    register(user: IUser): void;
 }
             /*React*/
 export interface ITarget {   
@@ -65,7 +81,7 @@ export interface IAction {
     payload?: any;
 }
 export interface IAuthFunction { 
-    name?: string;
-    email: string;
+    userName: string;
+    email?: string;
     password: string;
 }

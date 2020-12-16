@@ -7,7 +7,7 @@ export const getNotes = () => (dispatch: Function) => {
   //para los metodos que necesite mandar el Token, leerlo aca
   dispatch(setNotesLoading());
    axios //return
-    .get('https://altas-notas-ts.herokuapp.com/notes') //https://altas-notas-ts.herokuapp.com/notes
+    .get('http://localhost:5000/notes') //https://altas-notas-ts.herokuapp.com/notes
     .then(res =>
       dispatch({
         type: GET_NOTES,
@@ -24,7 +24,7 @@ export const addNote = (note: INote) => (
   getState: Function
 ) => {
   axios
-    .post('https://altas-notas-ts.herokuapp.com/notes', note) //http://localhost:5000/notes
+    .post('http://localhost:5000/notes', note) //http://localhost:5000/notes
     .then(res =>
       dispatch({
         type: ADD_NOTE,
@@ -41,7 +41,7 @@ export const deleteNote = (id: string) => (
   getState: Function
 ) => {
   axios
-    .delete(`https://altas-notas-ts.herokuapp.com/notes/${id}`)
+    .delete(`http://localhost:5000/notes/${id}`)
     .then(res =>
       dispatch({
         type: DELETE_NOTE,

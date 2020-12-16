@@ -24,17 +24,20 @@ const {notes} = note;
         <React.Fragment>
             <AppNavbar/>
             <NoteForm/>
-            <div className="footer">
-                <div>
+                <div className="footer">
                     <div>Title</div>
                     <div>Description</div>
                     <div>Date</div>
                     <div>key</div>
                 </div>
-            </div>
             <div>
                 {notes.map(({_id,title,description}) =>(
-                    <div key={_id}>
+                    <div key={_id} className="note">
+                        <div>
+                            <div>Title: {title}</div>
+                            <div>Description: {description}</div>
+                            <div>key: {_id}</div>
+                        </div>
                         <div>
                             <button
                                 className="deleteNote"
@@ -46,9 +49,6 @@ const {notes} = note;
                             Delete
                             </button>
                         </div>
-                        <div>Title: {title}</div>
-                        <div>Description: {description}</div>
-                        <div>key: {_id}</div>
                     </div>
                 ))}
             </div>

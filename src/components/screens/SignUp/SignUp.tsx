@@ -2,29 +2,61 @@ import './signup.css';
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-
-class SignUp extends Component{
-    render(){
-        return(
-            <div className="signup">
-                <h2 className='head'>Sign Up</h2>
-                <div className="saveUser">
-                    <input className="" type="text" name="user" id="user" placeholder="user"/>
-                    <input className="" type="text" name="email" id="email" placeholder="email"/>
-                    <input className="" type="text" name="pass" id="pass" placeholder="pass"/>
-                    <button className="save" >Guardar usuario</button>
+import {IAuthReduxProps, ISignUp} from '../../../interfaces';
+import { Form, Field } from 'react-final-form';
+const SignUp = ({
+    register
+  }: ISignUp) => {
+    const onSubmit =(e: any) => {
+        const userName = e.userName
+        const email = e.email
+        const password = e.password
+        const user = {
+            userName: userName,
+            email: email,
+            password: password
+        };
+        console.log("paso a user")
+        register(user);
+        //<Link to="/login"/>
+    }
+    return(
+        <Form
+            onSubmit={onSubmit}
+            //initialValues={}
+            render={({ handleSubmit, form, submitting, pristine, values }) => (
+                <form onSubmit={handleSubmit}>
+                    <h2 className="default">Simple Default Input</h2>
+                    <div className="container">
+                        <div>
+                            <label>userName</label>
+                            <Field name="userName" component="input" placeholder="userName" />
+                        </div>
+                        <div>
+                            <label>email</label>
+                            <Field name="email" component="input" placeholder="email" />
+                        </div>
+                        <div>
+                        <div>
+                        <label>password</label>
+                            <Field name="password" component="input" placeholder="password" />
+                        </div>
+                            <button className="add" type="submit">Add</button>
+                        </div>
+                    </div>
                     <Link to = "/home">
-                        <button className="button">Home</button>
+                        <button className="button Home">Home</button>
                     </Link>
-                </div>
-            </div>
-        )
-    }
+                </form>
+                
+            )}
+        />
+    )
 }
-const mapStateToProps = (state: any) => {
-    return {
-        user: state.user
-    }
-} 
+
+const mapStateToProps = (state: IAuthReduxProps) => ({
+    /*isAuthenticated: state.auth.isAuthenticated,
+    error: state.error*/
+})
 export default connect(mapStateToProps)(SignUp);
 //
