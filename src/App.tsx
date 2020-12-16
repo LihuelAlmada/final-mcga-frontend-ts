@@ -5,14 +5,14 @@ import AppNavbar from './components/screens/AppNavBar/AppNavBar';
 import SignIn from './components/screens/SignIn/SignIn';
 import SignUp from './components/screens/SignUp/SignUp';
 import NotesList from './components/screens/NoteList/NotesList';
-//import {loadUser} from './store/user/actions';
+import {loadUser} from './store/user/actions';
 import { Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
 
 const App = () => {
-  /*useEffect(() => {
+  useEffect(() => {
     store.dispatch(loadUser());
-  }, []);*/
+  }, []);
 
   return (
     <Provider store={store}>

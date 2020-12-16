@@ -2,6 +2,7 @@ import axios from 'axios';
 import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING } from './types';
 import { INote } from '../../interfaces';
 
+
 export const getNotes = () => (dispatch: Function) => {
   dispatch(setNotesLoading());
   axios
