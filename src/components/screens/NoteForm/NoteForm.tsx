@@ -7,16 +7,16 @@ import { Form, Field } from 'react-final-form';
 
 const NoteForm = ({addNote }: INoteAdd) => {
 
-    const [title, setTitle] = useState('');
-    const [description,setDescription] = useState('');
+    /*const [title, setTitle] = useState('');
+    const [description,setDescription] = useState('');*/
 
-    const handleChangeTitle = (e: ITarget) =>{setTitle(e.target.value)} 
+    /*const handleChangeTitle = (e: ITarget) =>{setTitle(e.target.value)} 
 
-    const handleChangeDescription = (e: ITarget) => setDescription(e.target.value);
+    const handleChangeDescription = (e: ITarget) => setDescription(e.target.value);*/
     /*onChange = e =>{
         this.setStage({ [e.target.name]: e.target.value})
     }*/
-    const handleOnSubmit = (e: any) => {
+    /*const handleOnSubmit = (e: any) => {
         e.preventDefault();
         const newNote = {
             title,
@@ -24,22 +24,32 @@ const NoteForm = ({addNote }: INoteAdd) => {
         };
         console.log("paso a newNote")
         addNote(newNote);
-    };
+    };*/
+    const onSubmit =(e: any) => {
+        e.preventDefault();
+        /*const newNote = {
+            title,
+            description
+        };*/
+        console.log("paso a newNote")
+        //addNote(newNote);
+    }
     return(
         <Form
-            initialValues={{ title: "", description: "" }}
-            onSubmit={(initialValues: string) => { console.log("formik");}}
-            render={() => (
-                <form onSubmit={handleOnSubmit}>
+            onSubmit={onSubmit}
+            //initialValues={}
+            render={({ handleSubmit, form, submitting, pristine, values }) => (
+
+                <form onSubmit={handleSubmit}>
                     <h2 className="default">Simple Default Input</h2>
                     <div className="container">
                         <div>
                             <label>Title</label>
-                            <Field name="title" component="input" placeholder={title} onChange={handleChangeTitle} />
+                            <Field name="title" component="input" placeholder="Title" />
                         </div>
                         <div>
                             <label>Description</label>
-                            <Field name="description" component="input" placeholder={description} onChange={handleChangeDescription} />
+                            <Field name="description" component="input" placeholder="Description" />
                         </div>
                         <div>
                         <button className="add" type="submit">Add</button>

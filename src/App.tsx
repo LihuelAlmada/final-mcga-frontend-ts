@@ -1,13 +1,13 @@
-import React,{ useEffect } from 'react';
+import './App.css';
+import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/index';
-import AppNavbar from './components/screens/AppNavBar/AppNavBar';
 import SignIn from './components/screens/SignIn/SignIn';
 import SignUp from './components/screens/SignUp/SignUp';
 import NotesList from './components/screens/NoteList/NotesList';
 import {loadUser} from './store/user/actions';
 import { Route, Switch, Redirect} from 'react-router-dom';
-import './App.css';
+import Home from './components/screens/Home/Home';
 
 const App = () => {
   useEffect(() => {
@@ -20,8 +20,9 @@ const App = () => {
         <Switch>
             <Route path="/login" component={SignIn} />
             <Route path="/register" component={SignUp} />
-            <Route exact path="/home" component={NotesList} />
+            <Route exact path="/home" component={Home} />
             <Redirect path="/" to="/home"/>
+            <Route exact path="/notes" component={NotesList} />
         </Switch>
       </div>
     </Provider>

@@ -24,13 +24,10 @@ const SignIn = () => (
         </div>
         <h2>Render Function as Children</h2>
         <Field name="phone">
-            {({ input, meta }) => (
             <div>
                 <label>Phone</label>
-                <input type="text" {...input} placeholder="Phone" />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
+                <input type="text" placeholder="Phone" />
             </div>
-            )}
         </Field>
         <button className='submit' type="submit">Submit</button>
         <Link to = "/home">
@@ -43,5 +40,6 @@ const SignIn = () => (
         </form>
     )}
     />
+   
 )
 export default SignIn;

@@ -32,3 +32,19 @@ export const loadUser = () => (dispatch: Function, getState: Function) => {
             });
         });
 }
+
+/*export const tokenConfig = (getState: Function) =>{
+    // Get token from localstorage
+    const token = getState().user.token;
+
+    //Headers
+    const config: IConfigHeaders = {
+        headers: {
+            "Content-type": "application/json"
+        }
+    }
+    //If token, add to headers
+    if (token) {
+        config.headers['x-auth-token'] = token;
+    }
+}*/
