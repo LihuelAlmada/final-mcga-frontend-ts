@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 55px;
     align-items: center;
     transition: padding-top 0.5s ease;
     background-color: #ecf0f1;
@@ -22,10 +22,9 @@
 .navbar {
   display: inline;
   height: 55px;
-  bottom: 0;
   width: 100%;
   line-height: 60px;
-  background-color: #2991ce;
+  background-color:  #2991ce ;
 }
 
 .button {
@@ -43,4 +42,5 @@
     font-weight: bold;
     background-color: #d33030;
     color: #ffffff;
+    outline: none;
 }

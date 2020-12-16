@@ -16,7 +16,8 @@ const SignIn = () => (
         validate={validate}
         render={({ handleSubmit }) => (
         <form className='frm' onSubmit={handleSubmit}>
-        <h2 className='header'>Sign In</h2>
+        <h2 className='head'>Sign In</h2>
+        <div className="containForm">
         <div>
             <label>First Name</label>
             <Field name="firstName" component="input" placeholder="First Name" />
@@ -33,11 +34,12 @@ const SignIn = () => (
         </Field>
         <button className='submit' type="submit">Submit</button>
         <Link to = "/home">
-            <button className="button green">Home</button>
+            <button className="button Home">Home</button>
         </Link>
         <Link to = "/register">
                 <button className="button">Register</button>
         </Link>
+        </div>
         </form>
     )}
     />
