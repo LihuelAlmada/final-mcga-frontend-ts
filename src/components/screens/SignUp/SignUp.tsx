@@ -10,8 +10,9 @@ class SignUp extends Component{
             <div className="signup">
                 <h2 className='head'>Sign Up</h2>
                 <div className="saveUser">
-                    <input className="box" type="text" name="user" id=""/>
-                    <input className="box" type="text" name="pass" id=""/>
+                    <input className="" type="text" name="user" id="user" placeholder="user"/>
+                    <input className="" type="text" name="email" id="email" placeholder="email"/>
+                    <input className="" type="text" name="pass" id="pass" placeholder="pass"/>
                     <button className="save">Guardar usuario</button>
                     <Link to = "/home">
                         <button className="button">Home</button>
