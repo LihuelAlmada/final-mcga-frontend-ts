@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 const AppNavbar = () => {
     return(
-        <div className="navbar navbar-dark bg-dark  extra-holder">
+        <div className="navbar navbar-dark bg-dark extra-holder">
             <div className="header">
                 <h1>Altas Notas</h1>
             </div>

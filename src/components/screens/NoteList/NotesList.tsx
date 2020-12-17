@@ -19,7 +19,6 @@ const NotesList = ({
 const handleDelete = (id: string) => {
     deleteNote(id);
 };
-//col-12 col-sm-8 col-md-6 col-xl-4
 const {notes} = note;
     return (
         <React.Fragment>
