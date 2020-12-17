@@ -1,4 +1,4 @@
-import './style.css';
+//import './style.css';
 import React from 'react';
 import {INoteReduxProps, INoteAdd } from '../../../interfaces';
 import {addNote} from '../../../store/note/actions';
@@ -22,19 +22,19 @@ const NoteForm = ({addNote }: INoteAdd) => {
             onSubmit={onSubmit}
             //initialValues={}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
-                <form onSubmit={handleSubmit}>
-                    <h2 className="default">Simple Default Input</h2>
-                    <div className="container">
+                <form onSubmit={handleSubmit} className="row justify-content-center">
+                    <div className="col-12 col-sm-8 col-md-6 col-xl-4">
+                        <h2 className="default">Simple Default Input</h2>
                         <div>
                             <label>Title</label>
-                            <Field name="title" component="input" placeholder="Title" />
+                            <Field name="title" component="input" placeholder="Title" className="form-control mb-2"/>
                         </div>
                         <div>
                             <label>Description</label>
-                            <Field name="description" component="input" placeholder="Description" />
+                            <Field name="description" component="input" placeholder="Description" className="form-control mb-2"/>
                         </div>
-                        <div>
-                            <button className="add" type="submit">Add</button>
+                        <div className="row justify-content-center">
+                            <button className="btn btn-success btn-md btn-block" type="submit">Add</button>
                         </div>
                     </div>
                 </form>
