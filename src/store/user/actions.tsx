@@ -69,7 +69,7 @@ export const login = ({ userName,email, password }: IAuthFunction) => (
   const body = JSON.stringify({ userName, email, password });
 
   axios
-    .post('http://localhost:5000/login', body, config)
+    .post('http://localhost:5000/signin', body, config)
     .then(res =>
       dispatch({
         type: LOGIN_SUCCESS,
