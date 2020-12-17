@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {IAuthReduxProps, ISignIn} from '../../../interfaces';
 import { Form, Field } from 'react-final-form';
+import {login} from '../../../store/user/actions';
 const SignIn = ({
     login
   }: ISignIn) => {
@@ -57,4 +58,4 @@ const mapStateToProps = (state: IAuthReduxProps) => ({
     /*isAuthenticated: state.auth.isAuthenticated,
     error: state.error*/
 })
-export default connect(mapStateToProps, { /*login, clearErrors */})(SignIn);
+export default connect(mapStateToProps, { login})(SignIn);

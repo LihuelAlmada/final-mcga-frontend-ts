@@ -19,8 +19,6 @@ export const loadUser = () => (dispatch: Function, getState: Function) => {
             });
         });
 };
-
-
 // Register User
 export const register = ({ userName, email, password }: IAuthFunction) => (
     dispatch: Function
@@ -31,10 +29,8 @@ export const register = ({ userName, email, password }: IAuthFunction) => (
         'Content-Type': 'application/json'
       }
     };
-  
     // Request body
     const body = JSON.stringify({ userName, email, password });
-  
     axios
       .post('http://localhost:5000/signup', body, config)
       .then(res =>
@@ -58,6 +54,37 @@ export const logout = () => {
     type: LOGOUT_SUCCESS
   };
 };
+// Login User
+export const login = ({ userName,email, password }: IAuthFunction) => (
+  dispatch: Function
+) => {
+  // Headers
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  // Request body
+  const body = JSON.stringify({ userName, email, password });
+
+  axios
+    .post('http://localhost:5000/login', body, config)
+    .then(res =>
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      })
+    )
+    .catch(err => {
+      dispatch(
+        returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
+      );
+      dispatch({
+        type: LOGIN_FAIL
+      });
+    });
+};
 export const tokenConfig = (getState: Function) =>{
     // Get token from localstorage
     const token = getState().user.token;
@@ -70,7 +97,7 @@ export const tokenConfig = (getState: Function) =>{
     }
     //If token, add to headers
     if (token) {
-        config.headers['x-auth-token'] = token;
+        config.headers['Authorization'] = token;
     }
     return config;
 }

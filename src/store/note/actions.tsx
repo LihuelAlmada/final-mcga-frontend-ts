@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING } from './types';
 import { INote } from '../../interfaces';
+import {tokenConfig} from '../user/actions';
+import { returnErrors } from '../error/action'
 
 
 export const getNotes = () => (dispatch: Function) => {
@@ -15,7 +17,7 @@ export const getNotes = () => (dispatch: Function) => {
       })
     )
     .catch(err =>
-      console.log(err)
+      dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
 //fetch, todas las llamadas que requieran setear un header, tengo que ver como hacer un post, para el 3er parametro config, que es un json, header: '' Mirar doc axios
@@ -24,7 +26,7 @@ export const addNote = (note: INote) => (
   getState: Function
 ) => {
   axios
-    .post('http://localhost:5000/notes', note) //http://localhost:5000/notes
+    .post('http://localhost:5000/notes', note, tokenConfig(getState)) //http://localhost:5000/notes
     .then(res =>
       dispatch({
         type: ADD_NOTE,
@@ -41,7 +43,7 @@ export const deleteNote = (id: string) => (
   getState: Function
 ) => {
   axios
-    .delete(`http://localhost:5000/notes/${id}`)
+    .delete(`http://localhost:5000/notes/${id}`, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: DELETE_NOTE,
@@ -49,7 +51,7 @@ export const deleteNote = (id: string) => (
       })
     )
     .catch(err =>
-      console.log(err)
+      dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
 
