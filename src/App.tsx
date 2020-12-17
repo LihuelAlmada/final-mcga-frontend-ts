@@ -10,10 +10,10 @@ import { Route, Switch, Redirect} from 'react-router-dom';
 import Home from './components/screens/Home/Home';
 
 const App = () => {
-/*  useEffect(() => {
+useEffect(() => {
     store.dispatch(loadUser());
-  }, []);
-*/
+}, []);
+
   return (
     <Provider store={store}>
       <div className="App">

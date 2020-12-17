@@ -51,6 +51,9 @@ const SignUp = ({
                     <Link to = "/home">
                         <button className="button Home">Home</button>
                     </Link>
+                    <Link to = "/notes">
+                        <button className="button Home">Notas</button>
+                    </Link>
                 </form>
                 
             )}
