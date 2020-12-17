@@ -30,7 +30,7 @@ const SignUp = ({
             //initialValues={}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
-                    <h2 className="text-center">Simple Default Input</h2>
+                    <h2 className="text-center">SignUp</h2>
                     <hr/>
                     <div className="mt-5">
                         <div className="row justify-content-center">
@@ -42,7 +42,7 @@ const SignUp = ({
                                     <button className="btn btn-success ms mt-2" type="submit">Register</button>
                                 </div>
                                 <hr/>
-                                    <div className="d-flex justify-content-around">
+                                <div className="d-flex justify-content-around">
                                     <Link to = "/home">
                                         <button className="btn btn-danger ms mt-2">Home</button>
                                     </Link>
@@ -50,7 +50,7 @@ const SignUp = ({
                                     <Link to = "/notes">
                                         <button className="btn btn-primary ms mt-2">Notas</button>
                                     </Link>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
