@@ -27,7 +27,7 @@ const {notes} = note;
             </div>
             <div>
                 {notes.map(({_id,title,description}) =>(
-                    <div key={_id}>
+                    <div key={_id} className="note">
                         <div>
                         </div>
                         <div>Title: {title}</div>

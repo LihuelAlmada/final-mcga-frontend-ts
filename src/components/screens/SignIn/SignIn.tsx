@@ -1,12 +1,14 @@
 import './style.css';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {IAuthReduxProps, ISignIn} from '../../../interfaces';
 import { Form, Field } from 'react-final-form';
 import {login} from '../../../store/user/actions';
 const SignIn = ({
-    login
+    login,
+    //isAuthenticated,
+    //error
   }: ISignIn) => {
     const onSubmit =(e: any) => {
         const userName = e.userName
@@ -21,6 +23,14 @@ const SignIn = ({
         login(user);
         //<Link to="/login"/>
     }
+    /*useEffect(() => {
+        // Check for register error
+        if (error.id === 'LOGIN_FAIL') {
+        } else {
+            isAuthenticated
+        }
+    }, [error,isAuthenticated]);*/
+    
     return(
         <Form
             onSubmit={onSubmit}
